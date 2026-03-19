@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Guess Game</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            margin-top: 50px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Guess the Number (1–100)</h2>
+<p>You have 10 attempts!</p>
+
+<input type="number" id="guess">
+<button onclick="checkGuess()">Submit</button>
+
+<p id="result"></p>
+<p id="attempts"></p>
+
+<button onclick="restartGame()">Play Again</button>
+
+<script>
+
+// 🎯 Step 3: Variables (same as Python)
+let secretNumber = Math.floor(Math.random() * 100) + 1;
+let attempts = 0;
+let maxAttempts = 10;
+
+// 🧩 Step 4: Function to check guess
+function checkGuess() {
+
+    let guess = parseInt(document.getElementById("guess").value);
+    attempts++;
+
+    // Show attempts
+    document.getElementById("attempts").innerText = 
+        "Attempts: " + attempts + "/" + maxAttempts;
+
+    if (guess < secretNumber) {
+        document.getElementById("result").innerText = "Higher ⬆️";
+    } 
+    else if (guess > secretNumber) {
+        document.getElementById("result").innerText = "Lower ⬇️";
+    } 
+    else {
+        document.getElementById("result").innerText = 
+            "🎉 You got it in " + attempts + " attempts!";
+    }
+
+    // 🛑 Limit attempts like Python loop
+    if (attempts >= maxAttempts && guess !== secretNumber) {
+        document.getElementById("result").innerText = 
+            "❌ Game Over! Number was " + secretNumber;
+    }
+}
+
+// 🔁 Step 5: Restart game (play again)
+function restartGame() {
+    secretNumber = Math.floor(Math.random() * 100) + 1;
+    attempts = 0;
+
+    document.getElementById("result").innerText = "";
+    document.getElementById("attempts").innerText = "";
+    document.getElementById("guess").value = "";
+}
+
+</script>
+
+</body>
+</html>
