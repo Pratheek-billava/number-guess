@@ -32,12 +32,10 @@
 
 <script>
 
-// 🎯 Step 3: Variables (same as Python)
 let secretNumber = Math.floor(Math.random() * 100) + 1;
 let attempts = 0;
 let maxAttempts = 10;
 
-// 🧩 Step 4: Function to check guess
 function checkGuess() {
 
     let guess = parseInt(document.getElementById("guess").value);
@@ -57,15 +55,11 @@ function checkGuess() {
         document.getElementById("result").innerText = 
             "🎉 You got it in " + attempts + " attempts!";
     }
-
-    // 🛑 Limit attempts like Python loop
     if (attempts >= maxAttempts && guess !== secretNumber) {
         document.getElementById("result").innerText = 
             "❌ Game Over! Number was " + secretNumber;
     }
 }
-
-// 🔁 Step 5: Restart game (play again)
 function restartGame() {
     secretNumber = Math.floor(Math.random() * 100) + 1;
     attempts = 0;
