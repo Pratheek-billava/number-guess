@@ -46,18 +46,18 @@ function checkGuess() {
         "Attempts: " + attempts + "/" + maxAttempts;
 
     if (guess < secretNumber) {
-        document.getElementById("result").innerText = "Higher ⬆️";
+        document.getElementById("result").innerText = "Higher ";
     } 
     else if (guess > secretNumber) {
-        document.getElementById("result").innerText = "Lower ⬇️";
+        document.getElementById("result").innerText = "Lower ";
     } 
     else {
         document.getElementById("result").innerText = 
-            "🎉 You got it in " + attempts + " attempts!";
+            "You got it in " + attempts + " attempts!";
     }
     if (attempts >= maxAttempts && guess !== secretNumber) {
         document.getElementById("result").innerText = 
-            "❌ Game Over! Number was " + secretNumber;
+            "Game Over! Number was " + secretNumber;
     }
 }
 function restartGame() {
